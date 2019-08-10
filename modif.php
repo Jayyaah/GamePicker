@@ -26,13 +26,13 @@ $jeu = $reponse->fetch();
 <nav>
     <ul>
         <li>
-            <a href="#">ACCUEIL</a>
+            <a href="accueil.php">ACCUEIL</a>
         </li>
         <li>
             <a href="ajout.php">AJOUTER UN JEU</a>
         </li>
         <li>
-            <a href="aleatoirePC.php">JEU ALEATOIRE</a>
+            <a href="choix.php">JEU ALEATOIRE</a>
         </li>
         <li>
             <a href="list.php">LISTE</a>

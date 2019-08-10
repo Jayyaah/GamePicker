@@ -24,7 +24,7 @@ if (isset($_POST['jeu'], $_POST['cat'])){
 <nav>
     <ul>
         <li>
-            <a href="#">ACCUEIL</a>
+            <a href="accueil.php">ACCUEIL</a>
         </li>
         <li>
             <a href="ajout.php">AJOUTER UN JEU</a>

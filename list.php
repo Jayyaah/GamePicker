@@ -9,7 +9,7 @@
 <nav>
     <ul>
         <li>
-            <a href="#">ACCUEIL</a>
+            <a href="accueil.php">ACCUEIL</a>
         </li>
         <li>
             <a href="ajout.php">AJOUTER UN JEU</a>
@@ -49,7 +49,14 @@
     <tr>
         <th>Jeux </th>
         <th>Categories </th>
-        <th>Actions </th>
+        <th>Actions
+            <form method="post" action="">
+                <select name="trier">
+                    <option value="tri_dateASC" >Trier par categorie</option>
+                </select>
+                <input type="submit" value="ok" />
+            </form>
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -63,6 +70,5 @@
     <?php endforeach;?>
     </tbody>
 </table>
-
 </body>
 </html>

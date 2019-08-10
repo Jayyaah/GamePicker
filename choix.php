@@ -9,7 +9,7 @@
 <nav>
     <ul>
         <li>
-            <a href="#">ACCUEIL</a>
+            <a href="accueil.php">ACCUEIL</a>
         </li>
         <li>
             <a href="ajout.php">AJOUTER UN JEU</a>
@@ -21,7 +21,7 @@
             <a href="list.php">LISTE</a>
         </li>
         <li>
-            <a href="#">CONNEXION</a>
+            <a href="inscription.php">CONNEXION</a>
         </li>
     </ul>
 </nav>
