@@ -53,6 +53,7 @@
             <form method="post" action="">
                 <select name="trier">
                     <option value="tri_dateASC" >Trier par categorie</option>
+                    <option value="tri_dateASC" >Trier par ordre alphabétique</option>
                 </select>
                 <input type="submit" value="ok" />
             </form>
