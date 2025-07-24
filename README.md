@@ -87,5 +87,3 @@ docker compose up -d
 ---
 
 👩‍💻 Développé avec ❤️ par Valentine
-
-```
