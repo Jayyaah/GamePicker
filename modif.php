@@ -29,7 +29,7 @@ if ($id && is_numeric($id)) {
 <body>
 <nav>
     <ul>
-        <li><a href="accueil.php">ACCUEIL</a></li>
+        <li><a href="index.php">ACCUEIL</a></li>
         <li><a href="ajout.php">AJOUTER UN JEU</a></li>
         <li><a href="choix.php">JEU ALÉATOIRE</a></li>
         <li><a href="list.php">LISTE</a></li>

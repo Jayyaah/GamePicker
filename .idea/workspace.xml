@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98f8ea00-09fc-45c3-81c7-12d832d92ccf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="98f8ea00-09fc-45c3-81c7-12d832d92ccf" name="Default Changelist" comment="Update all files with docker for database and better acces with a config.php">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ajout.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aleatoire.php" beforeDir="false" afterPath="$PROJECT_DIR$/aleatoire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aleatoirePC.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aleatoirePS4.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aleatoireSWITCH.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/choix.php" beforeDir="false" afterPath="$PROJECT_DIR$/choix.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fond.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/fond.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/supp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/inscription.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modif.php" beforeDir="false" afterPath="$PROJECT_DIR$/modif.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queljeujouer.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/queljeujouer.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/supprimer.php" beforeDir="false" afterPath="$PROJECT_DIR$/supprimer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/updateModif.php" beforeDir="false" afterPath="$PROJECT_DIR$/updateModif.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +49,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Jayyaah"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jayyaah&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:/Jayyaah/GamePicker.git",
-    "accountId": "516f8fb4-bf1b-4273-9412-b44c5fc18956"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:/Jayyaah/GamePicker.git&quot;,
+    &quot;accountId&quot;: &quot;516f8fb4-bf1b-4273-9412-b44c5fc18956&quot;
   }
-}]]></component>
+}</component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -87,9 +86,9 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.1.7/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="530" />
     <option name="y" value="164" />
@@ -123,27 +122,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/image" />
       <recent name="$PROJECT_DIR$/sql" />
       <recent name="C:\xampp\htdocs\dashboard\rand" />
       <recent name="C:\xampp\htdocs\dashboard\rand\image" />
@@ -190,8 +191,26 @@
       <workItem from="1565436471995" duration="189000" />
       <workItem from="1566504186856" duration="36000" />
       <workItem from="1568129184468" duration="389000" />
-      <workItem from="1753390570530" duration="2957000" />
+      <workItem from="1753390570530" duration="3132000" />
+      <workItem from="1753418746265" duration="3606000" />
     </task>
+    <task id="LOCAL-00001" summary="Update all files with docker for database and better acces with a config.php">
+      <option name="closed" value="true" />
+      <created>1753393578954</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753393578954</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update all files with docker for database and better acces with a config.php">
+      <option name="closed" value="true" />
+      <created>1753393588185</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753393588185</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -224,6 +243,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update all files with docker for database and better acces with a config.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update all files with docker for database and better acces with a config.php" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/delete.php" />
