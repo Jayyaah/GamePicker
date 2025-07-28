@@ -32,9 +32,9 @@ Ce projet utilise Docker pour simplifier le déploiement local. Il inclut :
 GamePicker/
 ├── docker-compose.yml
 ├── config.php
-├── \*.php (vos fichiers de projet)
+├── \*.php
 └── sql/
-└── init.sql (script de création de la base)
+└── init.sql
 
 ````
 
