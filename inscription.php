@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Les deux mots de passe ne correspondent pas.";
     } else {
         try {
-            // Vérifier si le pseudo ou l'email existe déjà
             $check = $pdo->prepare("SELECT COUNT(*) FROM validation WHERE pseudo = :pseudo OR email = :email");
             $check->execute([
                 ':pseudo' => $pseudo,
@@ -26,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($check->fetchColumn() > 0) {
                 $message = "Ce pseudo ou cet email est déjà utilisé.";
             } else {
-                $passeHash = sha1($passe); // à remplacer par password_hash() à l’avenir
+                $passeHash = sha1($passe); // À améliorer plus tard
                 $stmt = $pdo->prepare("INSERT INTO validation (pseudo, motdepasse, email) VALUES (:pseudo, :passe, :email)");
                 $stmt->execute([
                     ':pseudo' => $pseudo,
@@ -51,31 +50,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-dark" style="background: #393939;">
-    <div class="container justify-content-center">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link text-white" href="index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="ajout.php">Ajouter un jeu</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="choix.php">Jeu Aléatoire</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="list.php">Liste</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="inscription.php">Connexion</a></li>
-        </ul>
+<?php include 'navbar.php'; ?>
+
+<h1 class="titre-simple">Inscription</h1>
+
+<div class="card-ajout" style="max-width: 500px; margin: 2rem auto;">
+    <div class="card p-4">
+        <form method="post" action="inscription.php">
+            <div class="mb-3">
+                <label for="pseudo" class="form-label">Pseudo :</label>
+                <input type="text" class="form-control" id="pseudo" name="pseudo" required>
+            </div>
+            <div class="mb-3">
+                <label for="passe" class="form-label">Mot de passe :</label>
+                <input type="password" class="form-control" id="passe" name="passe" required>
+            </div>
+            <div class="mb-3">
+                <label for="passe2" class="form-label">Confirmation du mot de passe :</label>
+                <input type="password" class="form-control" id="passe2" name="passe2" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse e-mail :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="M'inscrire" class="btn-purple">
+            </div>
+        </form>
+
+        <?php if ($message): ?>
+            <p class="mt-3 text-center" style="color: <?= str_starts_with($message, 'Inscription') ? '#00ff8c' : '#ff6b6b' ?>;">
+                <?= htmlspecialchars($message) ?>
+            </p>
+        <?php endif; ?>
     </div>
-</nav>
-
-<h1>Inscription</h1>
-
-<form method="post" action="inscription.php">
-    <label>Pseudo : <input type="text" name="pseudo" required /></label><br/>
-    <label>Mot de passe : <input type="password" name="passe" required /></label><br/>
-    <label>Confirmation du mot de passe : <input type="password" name="passe2" required /></label><br/>
-    <label>Adresse e-mail : <input type="email" name="email" required /></label><br/>
-    <input type="submit" value="M'inscrire" />
-</form>
-
-<?php if ($message): ?>
-    <p style="color: <?= str_starts_with($message, 'Inscription') ? 'green' : 'red' ?>;"><?= htmlspecialchars($message) ?></p>
-<?php endif; ?>
+</div>
 
 </body>
 </html>

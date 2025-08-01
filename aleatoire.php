@@ -29,22 +29,12 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav>
-    <nav class="navbar navbar-dark" style="background: #393939;">
-        <div class="container justify-content-center">
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link text-white" href="index.php">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="ajout.php">Ajouter un jeu</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="choix.php">Jeu Aléatoire</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="list.php">Liste</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="inscription.php">Connexion</a></li>
-            </ul>
-        </div>
-    </nav>
-<fieldset>
+<?php include 'navbar.php'; ?>
+
+<!-- Affichage du jeu tiré au sort -->
+<div class="card-aleatoire">
     <legend>Résultat du tirage</legend>
-    <br />
-    <p id="jeu" style="text-align: center; font-size: 20px;">
+    <p id="jeu">
         <?php if ($jeuAleatoire): ?>
             🎮 <strong><?= htmlspecialchars($jeuAleatoire['jeu']) ?></strong><br />
             🕹️ Plateforme : <?= htmlspecialchars($jeuAleatoire['categorie']) ?>
@@ -53,18 +43,15 @@ try {
         <?php endif; ?>
     </p>
 
-    <div style="text-align: center; margin-top: 20px;">
-        <!-- Bouton pour rejouer sur la même plateforme -->
-        <form action="aleatoire.php" method="post" style="display:inline;">
-            <input type="hidden" name="plateforme" value="<?= htmlspecialchars($plateforme) ?>">
-            <input type="submit" value="🔄 Rejouer sur cette plateforme">
-        </form>
+    <!-- Boutons d'action -->
+    <form action="aleatoire.php" method="post">
+        <input type="hidden" name="plateforme" value="<?= htmlspecialchars($plateforme) ?>">
+        <input type="submit" value="🔄 Rejouer sur cette plateforme">
+    </form>
 
-        <!-- Bouton pour revenir choisir la plateforme -->
-        <form action="choix.php" method="get" style="display:inline;">
-            <input type="submit" value="🎯 Changer de plateforme">
-        </form>
-    </div>
-</fieldset>
+    <form action="choix.php" method="get">
+        <input type="submit" value="🎯 Changer de plateforme">
+    </form>
+</div>
 </body>
 </html>

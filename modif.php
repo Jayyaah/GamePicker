@@ -19,52 +19,50 @@ if ($id && is_numeric($id)) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Modifier un jeu</title>
     <meta charset="UTF-8" />
+    <title>Modifier un jeu</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-<nav class="navbar navbar-dark" style="background: #393939;">
-    <div class="container justify-content-center">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link text-white" href="index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="ajout.php">Ajouter un jeu</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="choix.php">Jeu Aléatoire</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="list.php">Liste</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="inscription.php">Connexion</a></li>
-        </ul>
-    </div>
-</nav>
+<?php include 'navbar.php'; ?>
 
-<div id="jeu">
-    <?php if ($jeu): ?>
-        <form action="updateModif.php" method="post">
-            <fieldset>
-                <legend>Modifier un jeu</legend><br />
+<h1 class="titre-simple">Modifier un jeu</h1>
+
+<?php if ($jeu): ?>
+<div class="card-ajout">
+    <div class="container">
+        <div class="card p-4 mx-auto" style="max-width: 500px;">
+            <form action="updateModif.php" method="post">
                 <input type="hidden" name="numJeu" value="<?= htmlspecialchars($jeu['id']) ?>">
 
-                <label for="jeu">Entrer le nom d'un jeu :</label>
-                <input type="text" name="jeu" id="jeu" value="<?= htmlspecialchars($jeu['jeu']) ?>" required /><br /><br />
+                <div class="mb-3">
+                    <label for="jeu" class="form-label">Nom du jeu :</label>
+                    <input type="text" name="jeu" id="jeu" class="form-control" value="<?= htmlspecialchars($jeu['jeu']) ?>" required>
+                </div>
 
-                <label for="categorie">Plateforme :</label>
-                <select name="categorie" id="categorie" required>
-                    <option value="PC" <?= $jeu['categorie'] === 'PC' ? 'selected' : '' ?>>PC</option>
-                    <option value="PS4" <?= $jeu['categorie'] === 'PS4' ? 'selected' : '' ?>>PS4</option>
-                    <option value="Switch" <?= $jeu['categorie'] === 'Switch' ? 'selected' : '' ?>>Switch</option>
-                </select>
+                <div class="mb-3">
+                    <label for="categorie" class="form-label">Plateforme :</label>
+                    <select name="categorie" id="categorie" class="form-select" required>
+                        <option value="PC" <?= $jeu['categorie'] === 'PC' ? 'selected' : '' ?>>PC</option>
+                        <option value="PS4" <?= $jeu['categorie'] === 'PS4' ? 'selected' : '' ?>>PS4</option>
+                        <option value="Switch" <?= $jeu['categorie'] === 'Switch' ? 'selected' : '' ?>>Switch</option>
+                    </select>
+                </div>
 
-                <br /><br />
-                <input type="submit" value="Mettre à jour" />
-            </fieldset>
-        </form>
-    <?php else: ?>
-        <p>Jeu introuvable.</p>
-    <?php endif; ?>
+                <div class="text-center">
+                    <input type="submit" value="Mettre à jour" class="btn btn-purple">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+<?php else: ?>
+    <p class="text-center text-danger mt-5">Jeu introuvable.</p>
+<?php endif; ?>
 
 </body>
 </html>

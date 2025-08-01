@@ -1,7 +1,239 @@
-html, body {
-    background: #393939;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #1e1f2f 0%, #3c1b69 50%, #2a68a2 100%);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1a1a1a !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-direction: column;
+}
+
+.navbar .logo {
+    display: block;
+    margin: 0 auto 10px;
+    height: 70px;
+}
+
+.nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 10px;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #f72585;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
 }
 
 .nav-link:hover {
-    color: #8A4EA0 !important;
+    color: #f72585 !important;
+    text-shadow: 0 0 8px #f72585;
 }
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* TITRE PAGE */
+h1 {
+    margin-top: 60px;
+    color: #ffffff !important;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+/* BOUTONS */
+button,
+input[type="submit"],
+input[type="button"] {
+    background-color: #7209b7;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #7209b7;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #560bad;
+    box-shadow: 0 0 15px #f72585;
+}
+
+/* LOGO */
+.logo {
+    max-height: 70px;
+    margin-bottom: 10px;
+}
+
+/* ==== PAGE AJOUT.JEU ==== */
+
+.card-ajout {
+    padding: 2rem;
+}
+
+.card-ajout .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.card-ajout label {
+    font-weight: 600;
+    color: #fff;
+}
+
+.card-ajout input[type="text"],
+.card-ajout select {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+}
+
+.card-ajout .btn-purple {
+    background-color: #1a1a1a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-ajout .btn-purple:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px #f72585;
+}
+
+/* ==== PAGE ALEATOIRE.JEU ==== */
+
+.card-aleatoire {
+    max-width: 500px;
+    margin: 4rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.card-aleatoire legend {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-aleatoire p#jeu {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.card-aleatoire form {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.card-aleatoire input[type="submit"] {
+    background-color: #7209b7;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #7209b7;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-aleatoire input[type="submit"]:hover {
+    background-color: #560bad;
+    box-shadow: 0 0 15px #f72585;
+}
+/* ==== PAGE CHOIX.JEU ==== */
+.card-plateforme {
+    max-width: 400px;
+    margin: 4rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.card-plateforme form {
+    margin-bottom: 1rem;
+}
+
+.card-plateforme input[type="submit"] {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 0 10px #1a1a1a;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-plateforme input[type="submit"]:hover {
+    background-color: #560bad;
+    box-shadow: 0 0 15px #f72585;
+}
+
+.btn-outline-danger {
+    box-shadow: none !important;
+}
+
+.btn-outline-danger:focus,
+.btn-outline-danger:active,
+.btn-outline-danger:hover {
+    box-shadow: none !important;
+}
+

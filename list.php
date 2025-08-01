@@ -1,13 +1,19 @@
 <?php
+session_start();
 require_once 'config.php';
+
+if (!isset($_SESSION['user'])) {
+    header("Location: connexion.php");
+    exit;
+}
 
 $message = $_GET['message'] ?? null;
 $supprime = $_GET['supprime'] ?? null;
+$userId = $_SESSION['user']['id'];
 
-// Récupération des jeux
 try {
-    $stmt = $pdo->prepare('SELECT * FROM app ORDER BY jeu ASC');
-    $stmt->execute();
+    $stmt = $pdo->prepare('SELECT * FROM app WHERE user_id = :uid ORDER BY jeu ASC');
+    $stmt->execute([':uid' => $userId]);
     $jeux = $stmt->fetchAll();
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
@@ -23,62 +29,41 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-dark" style="background: #393939;">
-    <div class="container justify-content-center">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link text-white" href="index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="ajout.php">Ajouter un jeu</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="choix.php">Jeu Aléatoire</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="list.php">Liste</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="inscription.php">Connexion</a></li>
-        </ul>
-    </div>
-</nav>
 
-<div class="container mt-4" style="background: #393939;">
-    <h1 class="text-white">Liste des jeux</h1>
+<?php include 'navbar.php';?>
+
+<div class="container mt-4" style="background: #393939; padding: 2rem; border-radius: 12px;">
+    <h1 class="text-white">Liste de mes jeux</h1>
 
     <?php if ($message): ?>
-        <div id="alert-message" class="alert alert-info text-center">
+        <div id="alert-message" class="alert alert-info text-center mt-3">
             <?= htmlspecialchars($message) ?>
         </div>
     <?php endif; ?>
 
     <table class="table table-dark table-striped mt-4">
         <thead>
-        <tr>
-            <th>Jeux</th>
-            <th>Catégories</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <th colspan="3">
-                <form method="post" action="">
-                    <select name="trier" class="form-select w-auto d-inline">
-                        <option value="tri_categorie">Trier par catégorie</option>
-                        <option value="tri_alpha">Trier par ordre alphabétique</option>
-                    </select>
-                    <input type="submit" value="OK" class="btn btn-secondary btn-sm" />
-                </form>
-            </th>
-        </tr>
+            <tr>
+                <th>Jeux</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        <?php foreach ($jeux as $jeu) : ?>
-            <tr class="item_row">
-                <td><?= htmlspecialchars($jeu['jeu']) ?></td>
-                <td><?= htmlspecialchars($jeu['categorie']) ?></td>
-                <td>
-                    <?php if ($supprime == $jeu['id']) : ?>
-                        <span class="text-success fw-bold">Supprimé</span>
-                    <?php else : ?>
-                        <a href="supprimer.php?numJeu=<?= $jeu['id'] ?>">
-                            <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                        </a>
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+            <?php foreach ($jeux as $jeu): ?>
+                <tr>
+                    <td><?= htmlspecialchars($jeu['jeu']) ?></td>
+                    <td><?= htmlspecialchars($jeu['categorie']) ?></td>
+                    <td>
+                        <?php if ($supprime == $jeu['id']): ?>
+                            <span class="text-success fw-bold">Supprimé</span>
+                        <?php else: ?>
+                            <a href="modifier.php?numJeu=<?= $jeu['id'] ?>" class="btn btn-sm btn-outline-primary">Modifier</a>
+                            <a href="supprimer.php?numJeu=<?= $jeu['id'] ?>" class="btn btn-sm btn-outline-danger">Supprimer</a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

@@ -1,13 +1,14 @@
 <?php
-$host = 'db';
-$dbname = 'gamepicker'; // ou "queljeujouer" si c'est le nom de ta base
+session_start();
+
+$host = 'localhost';
+$dbname = 'gamepicker';
 $user = 'root';
-$password = 'root';
+$password = '';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Erreur de connexion : " . $e->getMessage());
+    die("Connexion échouée : " . $e->getMessage());
 }
-?>

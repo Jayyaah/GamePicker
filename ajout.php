@@ -1,14 +1,26 @@
 <?php
 require_once 'config.php';
+if (!isset($_SESSION['user'])) {
+    header("Location: connexion.php");
+    exit;
+}
 
-if (isset($_POST['jeu'], $_POST['cat']) && !empty($_POST['jeu']) && !empty($_POST['cat'])) {
-    $req = $pdo->prepare('INSERT INTO app (id, jeu, categorie) VALUES(NULL, :jeu, :categorie)');
-    $req->bindValue(':jeu', $_POST['jeu'], PDO::PARAM_STR);
-    $req->bindValue(':categorie', $_POST['cat'], PDO::PARAM_STR);
-    $req->execute();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $jeu = $_POST['jeu'];
+    $categorie = $_POST['categorie'];
+    $userId = $_SESSION['user']['id'];
+
+    $stmt = $pdo->prepare("INSERT INTO app (jeu, categorie, user_id) VALUES (:jeu, :cat, :uid)");
+    $stmt->execute([
+        ':jeu' => $jeu,
+        ':cat' => $categorie,
+        ':uid' => $userId
+    ]);
+
+    header("Location: list.php?message=" . urlencode("Jeu ajouté avec succès !"));
+    exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,37 +30,30 @@ if (isset($_POST['jeu'], $_POST['cat']) && !empty($_POST['jeu']) && !empty($_POS
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-dark" style="background: #393939;">
-    <div class="container justify-content-center">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link text-white" href="index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="ajout.php">Ajouter un jeu</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="choix.php">Jeu Aléatoire</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="list.php">Liste</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="inscription.php">Connexion</a></li>
-        </ul>
+    <?php include 'navbar.php'; ?>
+    <div class="card-ajout mx-auto mt-5" style="max-width: 500px;">
+        <div class="card shadow-lg border-0 p-4">
+            <h2 class="text-center mb-4">Ajouter un Jeu</h2>
+            <form action="#" method="post">
+                <div class="mb-3">
+                    <label for="jeu" class="form-label">Nom du jeu</label>
+                    <input type="text" class="form-control" id="jeu" name="jeu" placeholder="Ex : Mario Kart" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cat" class="form-label">Plateforme</label>
+                    <select class="form-select" id="cat" name="cat" required>
+                        <option value="">-- Choisir une plateforme --</option>
+                        <option>PC</option>
+                        <option>PS4</option>
+                        <option>Switch</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Ajouter" class="btn btn-purple">
+                </div>
+            </form>
+        </div>
     </div>
-</nav>
-
-<div id="jeu">
-    <form action="#" method="post">
-        <fieldset>
-            <legend>Ajouter un jeu</legend>
-            <br />
-            <label for="jeu">Entrer le nom d'un jeu :</label>
-            <input type="text" name="jeu" id="jeu" required /><br /><br />
-
-            <label for="cat">Plateforme :</label>
-            <select name="cat" id="cat" required>
-                <option value="">-- Choisir --</option>
-                <option>PC</option>
-                <option>PS4</option>
-                <option>Switch</option>
-            </select>
-            <br /><br />
-            <input type="submit" value="Envoyer" />
-        </fieldset>
-    </form>
 </div>
 </body>
 </html>
