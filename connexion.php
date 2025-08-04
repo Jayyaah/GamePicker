@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Connexion</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <?php include 'navbar.php'; ?>
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="passe" class="form-label">Mot de passe :</label>
-                <input type="password" class="form-control" id="passe" name="passe" required>
+                <input type="password" class="form-control" id="passe" name="motdepasse" required>
             </div>
             <div class="text-center">
                 <input type="submit" value="Se connecter" class="btn-purple">

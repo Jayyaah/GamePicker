@@ -25,13 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($check->fetchColumn() > 0) {
                 $message = "Ce pseudo ou cet email est déjà utilisé.";
             } else {
-                $passeHash = sha1($passe); // À améliorer plus tard
+                // ✅ On utilise password_hash pour un hash compatible avec password_verify()
+                $passeHash = password_hash($passe, PASSWORD_DEFAULT);
+
                 $stmt = $pdo->prepare("INSERT INTO validation (pseudo, motdepasse, email) VALUES (:pseudo, :passe, :email)");
                 $stmt->execute([
                     ':pseudo' => $pseudo,
                     ':passe' => $passeHash,
                     ':email' => $email
                 ]);
+
                 $message = "Inscription réussie ✅";
             }
         } catch (PDOException $e) {
@@ -46,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Inscription</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <?php include 'navbar.php'; ?>

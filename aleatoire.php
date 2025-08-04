@@ -20,38 +20,43 @@ try {
     die("Erreur : " . $e->getMessage());
 }
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Jeu aléatoire</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css" />
+    <title>Jeu aléatoire</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
 <?php include 'navbar.php'; ?>
 
-<!-- Affichage du jeu tiré au sort -->
-<div class="card-aleatoire">
-    <legend>Résultat du tirage</legend>
-    <p id="jeu">
-        <?php if ($jeuAleatoire): ?>
-            🎮 <strong><?= htmlspecialchars($jeuAleatoire['jeu']) ?></strong><br />
-            🕹️ Plateforme : <?= htmlspecialchars($jeuAleatoire['categorie']) ?>
-        <?php else: ?>
-            Aucun jeu trouvé pour la plateforme <?= htmlspecialchars($plateforme) ?>.
-        <?php endif; ?>
-    </p>
+<div class="container mt-5">
+    <div class="card-aleatoire mt-4">
+        <legend>🎲 Résultat du tirage</legend>
 
-    <!-- Boutons d'action -->
-    <form action="aleatoire.php" method="post">
-        <input type="hidden" name="plateforme" value="<?= htmlspecialchars($plateforme) ?>">
-        <input type="submit" value="🔄 Rejouer sur cette plateforme">
-    </form>
+        <p id="jeu">
+            <?php if ($jeuAleatoire): ?>
+                🎮 <strong><?= htmlspecialchars($jeuAleatoire['jeu']) ?></strong><br />
+                🕹️ Plateforme : <?= htmlspecialchars($jeuAleatoire['categorie']) ?>
+            <?php else: ?>
+                Aucun jeu trouvé pour la plateforme <strong><?= htmlspecialchars($plateforme) ?></strong>.
+            <?php endif; ?>
+        </p>
 
-    <form action="choix.php" method="get">
-        <input type="submit" value="🎯 Changer de plateforme">
-    </form>
+        <!-- Boutons d'action -->
+        <form action="aleatoire.php" method="post">
+            <input type="hidden" name="plateforme" value="<?= htmlspecialchars($plateforme) ?>">
+            <input type="submit" value="🔄 Rejouer sur cette plateforme">
+        </form>
+
+        <form action="choix.php" method="get">
+            <input type="submit" value="🎯 Changer de plateforme">
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
