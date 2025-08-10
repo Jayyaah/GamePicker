@@ -1,35 +1,37 @@
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* BODY */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e1f2f 0%, #3c1b69 50%, #2a68a2 100%);
-    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1d, #0d0d0d);
+    color: #fff;
     min-height: 100vh;
 }
 
 /* NAVBAR */
 .navbar {
-    background-color: #1a1a1a !important;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    background: linear-gradient(90deg, #1f0036, #7209b7);
+    box-shadow: 0 0 20px rgba(247, 37, 133, 0.3);
+    padding: 1.5rem;
     flex-direction: column;
+    border-bottom: 2px solid #f72585;
 }
 
 .navbar .logo {
-    display: block;
-    margin: 0 auto 10px;
-    height: 70px;
+    height: 80px;
+    margin-bottom: 15px;
 }
 
 .nav {
-    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .nav-link {
@@ -37,205 +39,226 @@ body {
     font-size: 18px;
     text-transform: uppercase;
     position: relative;
-    transition: color 0.3s ease;
     padding: 10px;
+    transition: all 0.3s ease;
 }
 
 .nav-link::after {
     content: '';
-    display: block;
-    width: 0%;
-    height: 2px;
-    background: #f72585;
-    transition: width 0.3s ease;
     position: absolute;
     bottom: -5px;
     left: 0;
+    height: 3px;
+    width: 0%;
+    background: #f72585;
+    transition: 0.4s ease;
 }
 
 .nav-link:hover {
     color: #f72585 !important;
-    text-shadow: 0 0 8px #f72585;
+    text-shadow: 0 0 4px #f72585;
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
-/* TITRE PAGE */
-h1 {
-    color: #ffffff !important;
-    font-size: 32px;
+/* TITRES */
+h1, h2, h3 {
     text-align: center;
-    font-weight: 600;
-    text-shadow: none;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: bold;
 }
 
 /* BOUTONS */
 button,
 input[type="submit"],
-input[type="button"] {
+.btn {
     background-color: #7209b7;
     color: white;
+    font-weight: bold;
     border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    /*box-shadow: 0 0 10px #000;*/
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: none;
 }
 
 button:hover,
 input[type="submit"]:hover,
-input[type="button"]:hover {
+.btn:hover {
     background-color: #560bad;
-    box-shadow: 0 0 15px #f72585;
 }
 
-/* LOGO */
-.logo {
-    max-height: 70px;
-    margin-bottom: 10px;
-}
-
-/* ==== PAGE AJOUT.JEU ==== */
-
-.card-ajout {
-    padding: 2rem;
-}
-
-.card-ajout .card {
-    background: rgba(255, 255, 255, 0.05);
+/* CARD STYLES */
+.card-ajout,
+.card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    color: white;
-}
-
-.card-ajout label {
-    font-weight: 600;
-    color: #fff;
-}
-
-.card-ajout input[type="text"],
-.card-ajout select {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #000;
-    border: 2px solid #1a1a1a;
-    border-radius: 8px;
-}
-
-.card-ajout .btn-purple {
-    background-color: #1a1a1a;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-ajout .btn-purple:hover {
-    background-color: #1a1a1a;
-    box-shadow: 0 0 15px #f72585;
-}
-
-/* ==== PAGE ALEATOIRE.JEU ==== */
-
-.card-aleatoire {
+    padding: 2rem;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
     max-width: 500px;
-    margin: 4rem auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    margin: 3rem auto;
+}
+
+/* --- Card "Résultat du tirage" : centrage + style cohérent --- */
+.card-aleatoire {
+    display: grid;              /* centre facilement tout le contenu */
+    place-items: center;        /* horizontal + vertical */
+    gap: 1rem;                  /* espace entre éléments */
+    text-align: center;         /* texte centré */
+    max-width: 500px;           /* comme tes autres cards */
+    margin: 3rem auto;          /* centrée sur la page */
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 2rem;
-    color: white;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
 }
 
+/* Titre façon card */
 .card-aleatoire legend {
-    font-size: 1.8rem;
-    font-weight: bold;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
     color: #fff;
-    margin-bottom: 1rem;
 }
 
-.card-aleatoire p#jeu {
-    font-size: 1.2rem;
-    margin-top: 1rem;
+/* Le bloc du jeu tiré */
+.card-aleatoire #jeu {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: .5rem 0 1rem;
 }
 
+/* Les deux formulaires (rejouer / changer) centrés et espacés */
 .card-aleatoire form {
-    display: inline-block;
-    margin: 0.5rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin: .25rem 0;
 }
 
+/* Boutons conforts, sans néon */
 .card-aleatoire input[type="submit"] {
     background-color: #7209b7;
     color: #fff;
-    font-weight: bold;
     border: none;
-    padding: 10px 20px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 0 10px #7209b7;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    min-width: 260px;       /* large et centrés */
+    max-width: 420px;
+    width: fit-content;
+    transition: background-color .25s ease, transform .1s ease;
 }
 
 .card-aleatoire input[type="submit"]:hover {
     background-color: #560bad;
-    box-shadow: 0 0 15px #f72585;
+    transform: translateY(-1px);
 }
-/* ==== PAGE CHOIX.JEU ==== */
+
+.card-aleatoire input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+
 .card-plateforme {
-    max-width: 400px;
-    margin: 4rem auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 2rem;
-    color: white;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    max-width: 500px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .card-plateforme form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-bottom: 1rem;
 }
 
-.card-plateforme input[type="submit"] {
-    background-color: #1a1a1a;
+.card-plateforme form input[type="submit"] {
+    display: inline-block;
+    margin: 0 auto;    
+    min-width: 260px;
+    max-width: 420px;
+}
+
+/* FORM INPUTS */
+input[type="text"],
+select,
+input[type="password"],
+input[type="email"] {
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    font-weight: bold;
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
+    border: 2px solid #7209b7;
+    border-radius: 8px;
+    padding: 10px;
     width: 100%;
-    box-shadow: 0 0 10px #1a1a1a;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
 }
 
-.card-plateforme input[type="submit"]:hover {
-    background-color: #560bad;
-    box-shadow: 0 0 15px #f72585;
+input::placeholder {
+    color: #ccc;
 }
 
-.btn-outline-danger {
-    box-shadow: none !important;
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #fff;
 }
 
-.btn-outline-danger:focus,
-.btn-outline-danger:active,
-.btn-outline-danger:hover {
-    box-shadow: none !important;
-}
-
-.modal-content {
+/* TABLEAU */
+.table {
     background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #7209b7;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.table td {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #fff;
+}
+
+.table td a.btn {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+/* ALERTES */
+.alert {
+    background-color: #f72585;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 4px #000;
+    border-radius: 10px;
+}
+
+/* MODAL */
+.modal-content {
+    background: rgba(255, 255, 255, 0.07);
     color: white;
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -247,62 +270,29 @@ input[type="button"]:hover {
     border: none;
 }
 
-.modal-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.modal-content label {
-    font-weight: 600;
-    color: white;
-}
-
 .modal-content input[type="text"],
-.modal-content select {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-    border: 2px solid #1a1a1a;
+.modal-content select,
+.modal-content input[type="password"],
+.modal-content input[type="email"] {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid #7209b7;
     border-radius: 8px;
 }
 
-.modal-content button[type="submit"] {
-    background-color: #7209b7;
-    box-shadow: 0 0 10px #7209b7;
+/* LOGO */
+.logo {
+    max-height: 70px;
+    margin-bottom: 10px;
 }
 
-.modal-content button[type="submit"]:hover {
-    background-color: #560bad;
-    box-shadow: 0 0 15px #f72585;
-}
-/* ==== PAGE LISTE.JEU ==== */
-.card-liste {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-/* ==== TABLEAU ARRONDI ==== */
-.table-rounded {
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 15px;
-    overflow: hidden;
+/* LIENS */
+a {
+    color: #f72585;
+    text-decoration: none;
 }
 
-/* Coin arrondi sur l'en-tête */
-.table-rounded thead tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
-.table-rounded thead tr:first-child th:last-child {
-    border-top-right-radius: 15px;
+a:hover {
+    text-decoration: underline;
 }
 
-/* Coin arrondi sur le bas */
-.table-rounded tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-.table-rounded tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}

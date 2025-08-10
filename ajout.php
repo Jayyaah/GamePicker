@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <?php include 'navbar.php'; ?>
     <div class="card-ajout mx-auto mt-5" style="max-width: 500px;">
-        <div class="card shadow-lg border-0 p-4">
             <h2 class="text-center mb-4">Ajouter un Jeu</h2>
             <form action="#" method="post">
                 <div class="mb-3">
@@ -52,8 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="submit" value="Ajouter" class="btn btn-purple">
                 </div>
             </form>
-        </div>
     </div>
-</div>
+
 </body>
 </html>

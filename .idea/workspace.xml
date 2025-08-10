@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98f8ea00-09fc-45c3-81c7-12d832d92ccf" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generate_hash.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_hash.php" afterDir="false" />
+    <list default="true" id="98f8ea00-09fc-45c3-81c7-12d832d92ccf" name="Default Changelist" comment="fix some bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ajout.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aleatoire.php" beforeDir="false" afterPath="$PROJECT_DIR$/aleatoire.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/choix.php" beforeDir="false" afterPath="$PROJECT_DIR$/choix.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageaj.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/queljeujouer.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,6 +222,14 @@
       <workItem from="1754077936648" duration="724000" />
       <workItem from="1754115052088" duration="2851000" />
       <workItem from="1754236840840" duration="14006000" />
+      <workItem from="1754289236959" duration="28000" />
+      <workItem from="1754335974821" duration="116000" />
+      <workItem from="1754670682350" duration="5232000" />
+      <workItem from="1754677930797" duration="1518000" />
+      <workItem from="1754685743009" duration="140000" />
+      <workItem from="1754686253080" duration="1897000" />
+      <workItem from="1754722077311" duration="2155000" />
+      <workItem from="1754858538696" duration="2077000" />
     </task>
     <task id="LOCAL-00001" summary="Update all files with docker for database and better acces with a config.php">
       <option name="closed" value="true" />
@@ -267,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753729013217</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix some bug">
+      <option name="closed" value="true" />
+      <created>1754289257229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754289257229</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -316,7 +320,8 @@
     <MESSAGE value="Update all files with docker for database and better acces with a config.php" />
     <MESSAGE value="change accueil.php by index.php" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="fix some bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h1 class="titre-simple">Inscription</h1>
 
 <div class="card-ajout" style="max-width: 500px; margin: 2rem auto;">
-    <div class="card p-4">
         <form method="post" action="inscription.php">
             <div class="mb-3">
                 <label for="pseudo" class="form-label">Pseudo :</label>
@@ -86,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?= htmlspecialchars($message) ?>
             </p>
         <?php endif; ?>
-    </div>
+
 </div>
 
 </body>

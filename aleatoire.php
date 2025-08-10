@@ -34,7 +34,7 @@ try {
 <?php include 'navbar.php'; ?>
 
 <div class="container mt-5">
-    <div class="card-aleatoire mt-4">
+    <div class="card-aleatoire">
         <legend>🎲 Résultat du tirage</legend>
 
         <p id="jeu">
